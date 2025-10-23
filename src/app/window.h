@@ -20,45 +20,21 @@ namespace app {
 			GLFWwindow* window;
 
 		public:
-			
-			Window(glm::ivec2 size, glm::ivec2 pos, std::string title) {
-				this->size = size;
-				this->pos = pos;
-				this->title = title;
-				this->window = glfwCreateWindow(this->size.x, this->size.y, title.c_str(), NULL, NULL);
+			Window();
 
-				if (window == NULL) {
-					throw std::runtime_error("Failed to create GLFW window");
-				}
+			Window(glm::ivec2 size, glm::ivec2 pos, std::string title);
 
+			void setPos(glm::ivec2 pos);
 
-			};
+			glm::ivec2 getPos();
 
+			void setSize(glm::ivec2 size);
 
+			glm::ivec2 getSize();
 
-			void setPos(glm::ivec2 pos) {
-				this->pos = pos;
-			}
+			void setTitle(std::string title);
 
-			glm::ivec2 getPos() {
-				return this->pos;
-			}
-
-			void setSize(glm::ivec2 size) {
-				this->size = size;
-			}
-
-			glm::ivec2 getSize() {
-				return this->size;
-			}
-
-			void setTitle(std::string title) {
-				this->title = title;
-			}
-
-			std::string getTitle() {
-				return this->title;
-			}
+			std::string getTitle();
 
 
 
