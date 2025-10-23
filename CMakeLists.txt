@@ -20,14 +20,14 @@ file(COPY "${CMAKE_CURRENT_SOURCE_DIR}/resourcepacks" DESTINATION "${CMAKE_BINAR
 find_package(glfw3 CONFIG REQUIRED)
 find_package(glad CONFIG REQUIRED)
 find_package(glm CONFIG REQUIRED)
-
+find_package(spdlog CONFIG REQUIRED)
 
 
 
 
 target_link_libraries(voxelGame glfw)
 target_link_libraries(voxelGame glad::glad)
-target_link_libraries(voxelGame glm::glm)
-
+target_link_libraries(voxelGame glm::glm-header-only)
+target_link_libraries(voxelGame spdlog::spdlog_header_only)
 
 
