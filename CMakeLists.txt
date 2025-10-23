@@ -5,7 +5,6 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 
 
-
 project(voxelGame)
 
 add_executable(voxelGame 
