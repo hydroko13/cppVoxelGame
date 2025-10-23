@@ -13,7 +13,8 @@ add_executable(voxelGame
 "${CMAKE_CURRENT_SOURCE_DIR}/src/hi/hi.cpp"
 )
 
-file(COPY "${CMAKE_CURRENT_SOURCE_DIR}/resources" DESTINATION "${CMAKE_BINARY_DIR}")
+
+file(COPY "${CMAKE_CURRENT_SOURCE_DIR}/resourcepacks" DESTINATION "${CMAKE_BINARY_DIR}")
 
 
 find_package(glfw3 CONFIG REQUIRED)
