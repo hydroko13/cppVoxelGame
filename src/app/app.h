@@ -11,8 +11,24 @@
 #include "window.h"
 #include <spdlog/spdlog.h>
 #include <spdlog/sinks/basic_file_sink.h>
-#include <memory>
+#include <spdlog/sinks/daily_file_sink.h>
 #include <spdlog/sinks/stdout_color_sinks.h>
+#include <memory>
+#include <filesystem>
+#include <KnownFolders.h>
+#include <shlobj_core.h>
+#include <Windows.h>
+#include <sstream>
+#include <fstream>
+#include <locale>
+#include <codecvt>
+#include <uuids.h>
+#include <random>
+
+
+
+
+
 
 
 
@@ -21,44 +37,21 @@ namespace app {
     {
     private:
         Window window;
-        std::shared_ptr<spdlog::logger> console;
-        std::shared_ptr<spdlog::logger> err_logger;
+        std::shared_ptr<spdlog::logger> logger;
+
         std::string version = "v0.0.1";
 
+        std::mt19937 rng1;
+        std::mt19937 rng2;
+
+
     public:
-        Application()
-        {
-            console = spdlog::stderr_color_mt("console");
-            err_logger = spdlog::stderr_color_mt("stderr");
+        Application();
 
-            spdlog::get("console")->info("Starting CppVoxelGame " + version );
-            spdlog::get("console")->info("Initializing GLFW");
+        void terminate();
 
-            glfwInit();
-            glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-            glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
-            glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-            spdlog::get("console")->info("Creating GLFW window");
-            try
-            {
-                this->window = Window(glm::ivec2(800, 800), glm::ivec2(0, 0), std::string("C++ voxel game"));
+        
 
-
-                spdlog::get("console")->info("Successfully created GLFW window");
-            }
-            catch (std::exception &e)
-            {
-                spdlog::error("Failed to create GLFW window");
-
-                this->terminate();
-            }
-            
-        }
-
-        void terminate() {
-            spdlog::critical("Terminating program...");
-            std::exit(-1);
-        }
     };
 }
 
