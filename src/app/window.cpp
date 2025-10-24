@@ -15,8 +15,13 @@ app::Window::Window(glm::ivec2 size, glm::ivec2 pos, std::string title) {
     {
         throw std::runtime_error("Failed to create GLFW window");
     }
+
+
 };
 
+void app::Window::makeContextCurrent() {
+    glfwMakeContextCurrent(this->window);
+}
 
 void app::Window::setPos(glm::ivec2 pos)
 {

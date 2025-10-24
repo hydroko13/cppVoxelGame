@@ -8,7 +8,6 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <string>
 #include <stdexcept>
-#include "window.h"
 #include <spdlog/spdlog.h>
 #include <spdlog/sinks/basic_file_sink.h>
 #include <spdlog/sinks/daily_file_sink.h>
@@ -19,38 +18,10 @@
 #include <fstream>
 #include <locale>
 #include <codecvt>
-#include <vector>
 #include <random>
-#include "../gl/gl.h"
+#include <stdexcept>
+#include "../app/app.h"
 
-
-
-
-
-
-
-namespace app {
-    class Application
-    {
-    private:
-        Window window;
-        std::vector<spdlog::sink_ptr> sinks;
-        std::shared_ptr<spdlog::logger> logger;
-
-        std::string version = "v0.0.1";
-
-        std::mt19937 rng1;
-        std::mt19937 rng2;
-
-
-    public:
-        Application();
-
-        void terminate();
-
-        
-
-    };
+namespace gl {
+    void loadOpenGL();
 }
-
-

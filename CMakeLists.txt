@@ -11,6 +11,7 @@ add_executable(voxelGame
 "${CMAKE_CURRENT_SOURCE_DIR}/src/main.cpp"
 "${CMAKE_CURRENT_SOURCE_DIR}/src/app/window.cpp"
 "${CMAKE_CURRENT_SOURCE_DIR}/src/app/app.cpp"
+"${CMAKE_CURRENT_SOURCE_DIR}/src/gl/gl.cpp"
 )
 
 

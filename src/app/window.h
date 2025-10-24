@@ -36,7 +36,6 @@ namespace app {
 
 			std::string getTitle();
 
-
-
+			void makeContextCurrent();
 	};
 }
